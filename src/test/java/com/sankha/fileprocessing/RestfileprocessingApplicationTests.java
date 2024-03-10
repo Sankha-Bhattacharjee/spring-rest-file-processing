@@ -34,7 +34,7 @@ class RestfileprocessingApplicationTests {
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
 		MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
-		body.add("file", new ClassPathResource("50KB.jpg"));
+		body.add("file", new ClassPathResource("50KB.jpg")); //make sure file is in resources folder
 
 		HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<>(body, headers);
 
@@ -48,7 +48,7 @@ class RestfileprocessingApplicationTests {
 
 		HttpEntity<Object> httpEntity = new HttpEntity<>(headers);
 
-		String fileName = "50KB.jpg";
+		String fileName = "50KB.jpg"; //Filename
 
 		ResponseEntity<byte[]> response = restTemplate.exchange(DOWNLOAD_URL + fileName, HttpMethod.GET, httpEntity,
 				byte[].class);
